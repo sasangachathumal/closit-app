@@ -1,0 +1,47 @@
+
+<router-outlet></router-outlet>
+
+<!-- <div class="m-2">
+  @for (category of categoriyList; track category.id) {
+  <button type="button" (click)="onCategorySelect(category.id)"
+    class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2 rounded-full">{{category.category}}</button>
+  } @empty {
+  <li>There are no categories.</li>
+  }
+</div>
+
+@if (isShowSubCategories) {
+<div class="m-2">
+  @for (subCategory of subCategoriyList; track subCategory.id) {
+  <button type="button" (click)="onSubCategorySelect(subCategory.id)"
+    class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2 rounded-full">{{subCategory.subCategory}}</button>
+  } @empty {
+  <li>There are no categories.</li>
+  }
+</div>
+}
+
+@if (isShowSubCategoryImage) {
+<div class="m-2">
+  @for (images of subCategoriyImageList; track images.name) {
+    @if (images.isvisible) {
+      <div class="product">
+        <img [src]="images.url1" class="img-1" />
+        <img [src]="images.url2" class="img-2" />
+        <div #colorDiv class="color" [style.backgroundColor]="backgroundColor"></div>
+      </div>
+    }
+  } @empty {
+  <li>There are no categories.</li>
+  }
+  @if (subCategoriyImageList.length > 1) {
+    <button type="button" (click)="nextVisibleImage()"
+  class="text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 shadow-lg shadow-blue-500/50 dark:shadow-lg dark:shadow-blue-800/80 font-medium text-sm px-5 py-2.5 text-center me-2 mb-2 rounded-full">next</button>
+  }
+</div>
+
+<div class="m-2">
+  <b>Customize shirt color: </b>
+  <input type="color" class="color-input" [(ngModel)]="selectedColor" (ngModelChange)="changeColor()" />
+</div>
+} -->
