@@ -32,9 +32,14 @@
               }
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/res/scss/material-dashboard.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "src/res/js/material-dashboard.js",
+              "src/res/js/core/bootstrap.min.js",
+              "src/res/js/core/popper.min.js"
+            ]
           },
           "configurations": {
             "production": {
