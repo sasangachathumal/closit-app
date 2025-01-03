@@ -1,11 +1,51 @@
 <app-top-nav-bar></app-top-nav-bar>
 
-<div class="container w-100 min-vh-80">
-  <div class="row w-100 min-vh-80 d-flex align-items-center justify-content-center">
+<div class="container w-100 min-vh-80 prompt-field-container"> <!-- with-result -->
+  <div class="row p-4 result-container d-none">
+    <div class="col-12 p-0 m-0">
+      <div class="row p-0 m-0 title-container">
+        <div class="col-12 p-0 m-0">
+          <p class="m-0">Recommendations for you</p>
+        </div>
+      </div>
+      <div class="row p-4 justify-content-between main-result-container">
+        <div class="col-3 p-0 m-0">
+          <div class="image-container">
+            <img src="/customizer-img/Crew_neck_t-shirt_short_sleeve_1.png" class="img-1" />
+            <img src="/customizer-img/Crew_neck_t-shirt_short_sleeve_2.png" class="img-2" />
+            <div #colorDiv class="color" [style.backgroundColor]="'red'"></div>
+          </div>
+        </div>
+        <div class="col-3 p-0 m-0">
+          <div class="image-container">
+            <img src="/customizer-img/pullover_hoodie_1.png" class="img-1" />
+            <img src="/customizer-img/pullover_hoodie_2.png" class="img-2" />
+            <div #colorDiv class="color" [style.backgroundColor]="'green'"></div>
+          </div>
+        </div>
+        <div class="col-3 p-0 m-0">
+          <div class="image-container">
+            <img src="/customizer-img/v-neck_t-shirt_short_sleeve_1.png" class="img-1" />
+            <img src="/customizer-img/v-neck_t-shirt_short_sleeve_2.png" class="img-2" />
+            <div #colorDiv class="color" [style.backgroundColor]="'blue'"></div>
+          </div>
+        </div>
+        <div class="col-3 p-0 m-0">
+          <div class="image-container">
+            <img src="/customizer-img/zip-up_hoodie_1.png" class="img-1" />
+            <img src="/customizer-img/zip-up_hoodie_2.png" class="img-2" />
+            <div #colorDiv class="color" [style.backgroundColor]="'yellow'"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row w-100 prompt-field-row">
     <div class="col-10">
       <div class="w-100">
         <div class="input-group input-group-outline my-3 z-index-fixed shadow bg-body rounded">
-          <textarea class="form-control" rows="2" placeholder="Suggestions what to wear for a birthday party ........." spellcheck="false"></textarea>
+          <textarea class="form-control" rows="2" placeholder="Suggestions what to wear for a birthday party ........."
+            spellcheck="false"></textarea>
         </div>
       </div>
     </div>
