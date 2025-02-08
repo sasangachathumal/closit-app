@@ -1,7 +1,23 @@
 <app-top-nav-bar></app-top-nav-bar>
 
 <div class="container w-100 min-vh-80 prompt-field-container"> <!-- with-result -->
+  <!-- Provided Promt -->
   <div class="row p-4 result-container d-none">
+    <div class="col-12 p-0 m-0">
+      <div class="row p-0 m-0 title-container">
+        <div class="col-12 p-0 m-0">
+          <p class="m-0">You'r Prompt</p>
+        </div>
+      </div>
+      <div class="row p-0 m-0 mt-3">
+        <div class="col-12 p-0 m-0">
+          <p class="m-0 text-black">Suggestions what to wear for a birthday party</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Result for the Promt -->
+  <div class="row p-4 mt-3 result-container d-none">
     <div class="col-12 p-0 m-0">
       <div class="row p-0 m-0 title-container">
         <div class="col-12 p-0 m-0">
@@ -23,28 +39,15 @@
             <div #colorDiv class="color" [style.backgroundColor]="'green'"></div>
           </div>
         </div>
-        <div class="col-3 p-0 m-0">
-          <div class="image-container">
-            <img src="/customizer-img/v-neck_t-shirt_short_sleeve_1.png" class="img-1" />
-            <img src="/customizer-img/v-neck_t-shirt_short_sleeve_2.png" class="img-2" />
-            <div #colorDiv class="color" [style.backgroundColor]="'blue'"></div>
-          </div>
-        </div>
-        <div class="col-3 p-0 m-0">
-          <div class="image-container">
-            <img src="/customizer-img/zip-up_hoodie_1.png" class="img-1" />
-            <img src="/customizer-img/zip-up_hoodie_2.png" class="img-2" />
-            <div #colorDiv class="color" [style.backgroundColor]="'yellow'"></div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
+  <!-- Text area for type prompt -->
   <div class="row w-100 prompt-field-row">
     <div class="col-10">
       <div class="w-100">
         <div class="input-group input-group-outline my-3 z-index-fixed shadow bg-body rounded">
-          <textarea class="form-control" rows="2" placeholder="Suggestions what to wear for a birthday party ........."
+          <textarea class="form-control" rows="2" placeholder="Suggestions what to wear for a birthday party ..."
             spellcheck="false"></textarea>
         </div>
       </div>

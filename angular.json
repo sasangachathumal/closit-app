@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "cloze-app": {
+    "closit-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/cloze-app",
+            "outputPath": "dist/closit-app",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -69,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "cloze-app:build:production"
+              "buildTarget": "closit-app:build:production"
             },
             "development": {
-              "buildTarget": "cloze-app:build:development"
+              "buildTarget": "closit-app:build:development"
             }
           },
           "defaultConfiguration": "development"

@@ -16,7 +16,7 @@ import { categories } from '../data/clothing-category-data';
 })
 export class AppComponent implements OnInit {
 
-  title = 'cloze-app';
+  title = 'closit-app';
   selectedColor: string | undefined;
   backgroundColor: string | undefined;
   imageList: any;
