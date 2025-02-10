@@ -1,0 +1,16 @@
+.indicators {
+  width: 0.75rem;
+  height: 0.75rem;
+  border: none;
+  border-radius: 1rem;
+  background-color: rgba(250, 137, 0, 0.2);
+  min-width: 4rem;
+
+  &::before {
+    content: " ";
+  }
+
+  &.active {
+    background-color: rgba(250, 137, 0, 0.6);
+  }
+}
