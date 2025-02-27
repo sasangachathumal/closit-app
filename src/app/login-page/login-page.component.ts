@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { BackgroundImageComponent } from '../components/background-image/background-image.component';
@@ -6,10 +7,18 @@ import { BackgroundImageComponent } from '../components/background-image/backgro
 @Component({
   selector: 'app-login-page',
   standalone: true,
-  imports: [RouterLink, RouterLinkActive, BackgroundImageComponent],
+  imports: [RouterLink, RouterLinkActive, ReactiveFormsModule, BackgroundImageComponent],
   templateUrl: './login-page.component.html',
   styleUrl: './login-page.component.scss'
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
+  loginForm: any;
+
+  ngOnInit(): void {
+    this.loginForm = new FormBuilder().group({
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required]
+    });
+  }
 
 }
