@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { BackgroundImageComponent } from '../components/background-image/background-image.component';
 
 @Component({
   selector: 'app-register-page',
   standalone: true,
-  imports: [BackgroundImageComponent],
+  imports: [RouterLink, RouterLinkActive, BackgroundImageComponent],
   templateUrl: './register-page.component.html',
   styleUrl: './register-page.component.scss'
 })
