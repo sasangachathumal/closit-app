@@ -13,6 +13,12 @@
 }
 
 .result-container {
-  background: #8080803b;
-  border-radius: 20px;
+  background: #ffffff;
+  border-radius: 12px;
+  // border: 0.5px solid #ff932e;
+  box-shadow: 0 0 10px rgba(255, 144, 40, 0.266);
+}
+
+.text-area {
+  resize: none;
 }

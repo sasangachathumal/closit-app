@@ -2,14 +2,14 @@
 
 <div class="container w-100 min-vh-80 prompt-field-container with-result"> <!-- with-result -->
   <!-- Provided Promt -->
-  <div class="row p-4 result-container">
+  <div class="row p-3 result-container m-2">
     <div class="col-12 p-0 m-0">
       <div class="row p-0 m-0 title-container">
         <div class="col-12 p-0 m-0">
-          <p class="m-0">You'r Prompt</p>
+          <p class="m-0 text-black">You'r Prompt</p>
         </div>
       </div>
-      <div class="row p-0 m-0 mt-3">
+      <div class="row p-0 m-0 mt-2">
         <div class="col-12 p-0 m-0">
           <p class="m-0 text-black">Suggestions what to wear for a birthday party</p>
         </div>
@@ -17,42 +17,37 @@
     </div>
   </div>
   <!-- Result for the Promt -->
-  <div class="row p-4 mt-3 result-container">
+  <div class="row p-3 mt-3 mb-3 ms-2 me-2">
     <div class="col-12 p-0 m-0">
       <div class="row p-0 m-0 title-container">
         <div class="col-12 p-0 m-0">
-          <p class="m-0">Recommendations for you</p>
+          <p class="m-0 text-black">Recommendations for you</p>
         </div>
       </div>
-      <div class="row p-4 justify-content-between main-result-container">
-        <div class="col-3 p-0 m-0">
-          <app-t-shirt-short-sleeve [clothColor]="'red'"></app-t-shirt-short-sleeve>
-        </div>
-        <div class="col-3 p-0 m-0">
-          <app-hoodie [clothColor]="'blue'"></app-hoodie>
-        </div>
-        <div class="col-3 p-0 m-0">
-          <app-jeans [clothColor]="'green'"></app-jeans>
-        </div>
-        <div class="col-3 p-0 m-0">
-          <app-shoes [clothColor]="'red'"></app-shoes>
-        </div>
-        <div class="col-3 p-0 m-0">
-          <app-shorts [clothColor]="'blue'"></app-shorts>
-        </div>
-        <div class="col-3 p-0 m-0">
-          <app-t-shirt-long-sleeve [clothColor]="'yellow'"></app-t-shirt-long-sleeve>
-        </div>
+      <div class="d-flex p-3 flex-row flex-wrap gap-5 justify-content-center align-content-center align-items-center">
+        <app-t-shirt-short-sleeve [clothColor]="'red'"></app-t-shirt-short-sleeve>
+        <app-hoodie [clothColor]="'blue'"></app-hoodie>
+        <app-jeans [clothColor]="'green'"></app-jeans>
+        <app-shoes [clothColor]="'red'"></app-shoes>
+        <app-shorts [clothColor]="'blue'"></app-shorts>
+        <app-t-shirt-long-sleeve [clothColor]="'yellow'"></app-t-shirt-long-sleeve>
       </div>
     </div>
   </div>
   <!-- Text area for type prompt -->
   <div class="row w-100 prompt-field-row">
     <div class="col-10">
-      <div class="w-100">
-        <div class="input-group input-group-outline my-3 z-index-fixed shadow bg-body rounded">
-          <textarea class="form-control" rows="2" placeholder="Suggestions what to wear for a birthday party ..."
-            spellcheck="false"></textarea>
+      <div class="row m-0 p-0">
+        <div class="col-11 m-0 p-0">
+          <div class="input-group input-group-outline z-index-fixed shadow bg-body rounded">
+            <textarea class="form-control text-area" rows="2" placeholder="Suggestions what to wear for a birthday party ..."
+              spellcheck="true"></textarea>
+          </div>
+        </div>
+        <div class="col-1 my-auto">
+          <button type="button" class="btn btn-icon bg-gradient-warning m-auto">
+            <span class="material-symbols-outlined m-auto">send</span>
+          </button>
         </div>
       </div>
     </div>
