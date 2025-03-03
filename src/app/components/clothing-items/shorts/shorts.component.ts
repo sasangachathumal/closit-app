@@ -9,4 +9,5 @@ import { Component, input } from '@angular/core';
 })
 export class ShortsComponent {
   clothColor = input('');
+  isSize100 = input();
 }

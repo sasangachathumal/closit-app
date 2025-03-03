@@ -44,6 +44,33 @@
     z-index: 1;
     mix-blend-mode: multiply;
   }
+  &.wh-100 {
+    width: 100% !important;
+    height: 100% !important;
+    .img-1 {
+      width: 100% !important;
+      height: 100% !important;
+      aspect-ratio: 16 / 20;
+    }
+    .img-2 {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  &.wh-fit {
+    width: 100% !important;
+    height: 100% !important;
+    .img-1 {
+      width: 100% !important;
+      height: 100% !important;
+      aspect-ratio: 16 / 20;
+    }
+    .img-2 {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
 }
 
 .font-black, .text-black {

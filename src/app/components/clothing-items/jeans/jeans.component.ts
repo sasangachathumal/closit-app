@@ -9,4 +9,6 @@ import { Component, input } from '@angular/core';
 })
 export class JeansComponent {
   clothColor = input('');
+  isSize100 = input();
+  isSizeFit = input();
 }
