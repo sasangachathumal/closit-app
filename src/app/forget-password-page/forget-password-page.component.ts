@@ -14,6 +14,10 @@ import { BackgroundImageComponent } from '../components/background-image/backgro
 export class ForgetPasswordPageComponent implements OnInit {
   forgetPassForm: any;
 
+  constructor() {
+
+  }
+
   ngOnInit(): void {
     this.forgetPassForm = new FormBuilder().group({
       email: ['', [Validators.required, Validators.email]]

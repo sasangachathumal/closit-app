@@ -22,6 +22,11 @@
                     <label class="form-label">Password</label>
                     <input type="password" class="form-control" formControlName="password">
                   </div>
+                  @if (isError) {
+                    <div>
+                      <p class="text-danger">{{errorMessage}}</p>
+                    </div>
+                  }
                   <button type="button" class="btn bg-gradient-warning w-90" [disabled]="loginForm.invalid" (click)="loginFormSubmit()">Login</button>
                 </form>
               </div>

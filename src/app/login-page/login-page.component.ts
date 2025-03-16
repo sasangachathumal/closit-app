@@ -19,6 +19,8 @@ import { environment } from "../../environments/environment";
 })
 export class LoginPageComponent implements OnInit {
   loginForm: any;
+  isError: boolean = false;
+  errorMessage: string = '';
 
   constructor(
     private formBuilder: FormBuilder,
@@ -27,6 +29,8 @@ export class LoginPageComponent implements OnInit {
     private storage: LocalStorageService) { }
 
   ngOnInit(): void {
+    this.isError = false;
+    this.errorMessage = '';
     this.loginForm = new FormBuilder().group({
       email: ['', [Validators.required, Validators.email]],
       password: ['', Validators.required]
@@ -35,25 +39,31 @@ export class LoginPageComponent implements OnInit {
 
   loginFormSubmit() {
     if (this.loginForm?.valid) {
+      this.isError = false;
+      this.errorMessage = '';
       this.service.login(this.loginForm.value)
-        .subscribe(
-          (response) => {
+        .subscribe({
+          next: (response) => {
             this.storage.set('accessToken', response.accessToken);
             this.service.me(response.accessToken)
-              .subscribe(
-                async (newResponse) => {
-                  this.storage.set('me', newResponse.data);
+              .subscribe({
+                next: (meResponse) => {
+                  this.storage.set('me', meResponse.data);
                   this.router.navigate(['/home']);
                 },
-                async (error) => {
+                error: (error) => {
                   this.storage.clear();
+                  this.isError = true;
+                  this.errorMessage = 'Login process fail! Please try again';
                 }
-              );
+              });
           },
-          async (error) => {
+          error: (error) => {
             this.storage.clear();
+            this.isError = true;
+            this.errorMessage = 'Login process fail! Please try again';
           }
-        );
+        });
     }
   }
 

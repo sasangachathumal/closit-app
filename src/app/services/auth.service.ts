@@ -13,7 +13,8 @@ export class AuthService {
     // API URL
     private endpoints = {
       login: '/api/login',
-      register: '/api/user',
+      register: '/api/register',
+      verifyRegister: '/api/register/verify',
       logout: '/api/logout',
       forgetPass: '/api/forgot-password',
       resetPass: '/api/reset-password',
@@ -29,6 +30,11 @@ export class AuthService {
     // POST request to log user in
     login(data: any): Observable<any> {
       return this.http.post(`${environment.apiUrl}${this.endpoints.login}`, data);
+    }
+
+    // POST request to verify user before register
+    verifyRegister(data: any): Observable<any> {
+      return this.http.post(`${environment.apiUrl}${this.endpoints.register}`, data);
     }
 
     // POST request to register user in

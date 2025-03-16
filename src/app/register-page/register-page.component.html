@@ -38,9 +38,14 @@
                     <label class="form-label">Confirm Password</label>
                     <input type="password" class="form-control" formControlName="confirmPassword">
                   </div>
-                  <button type="button" class="btn bg-gradient-warning w-90" [disabled]="secondForm.invalid">Register</button>
+                  <button type="button" class="btn bg-gradient-warning w-90" [disabled]="secondForm.invalid" (click)="registerNewUser()">Register</button>
                 </form>
               </div>
+              }
+              @if (isError) {
+                <div>
+                  <p class="text-danger">{{errorMessage}}</p>
+                </div>
               }
               <div class="d-flex justify-content-center mb-3">
                 <div class="indicators me-3" [class.active]="isShowStepOne"></div>
