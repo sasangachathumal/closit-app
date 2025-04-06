@@ -3,13 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { TopNavBarComponent } from "../components/top-nav-bar/top-nav-bar.component";
 
 import { ClothingItemCardComponent } from '../components/clothing-item-card/clothing-item-card.component';
-import { HoodieComponent } from '../components/clothing-items/hoodie/hoodie.component';
-import { JeansComponent } from '../components/clothing-items/jeans/jeans.component';
-import { ShoesComponent } from '../components/clothing-items/shoes/shoes.component';
-import { ShortsComponent } from '../components/clothing-items/shorts/shorts.component';
-import { TShirtLongSleeveComponent } from '../components/clothing-items/t-shirt-long-sleeve/t-shirt-long-sleeve.component';
-import { TShirtShortSleeveComponent } from '../components/clothing-items/t-shirt-short-sleeve/t-shirt-short-sleeve.component';
-import { TrouserComponent } from '../components/clothing-items/trouser/trouser.component';
 
 import { LocalStorageService } from "../services/local-storage.service";
 import { CategoryCounts } from "../services/util.service";
@@ -18,7 +11,7 @@ import { WardrobeItem, WardrobeService } from "../services/wardrobe.service";
 @Component({
   selector: 'app-wardrobe-page',
   standalone: true,
-  imports: [TopNavBarComponent, ClothingItemCardComponent, HoodieComponent, JeansComponent, ShoesComponent, ShortsComponent, TShirtLongSleeveComponent, TShirtShortSleeveComponent, TrouserComponent],
+  imports: [TopNavBarComponent, ClothingItemCardComponent],
   templateUrl: './wardrobe-page.component.html',
   styleUrl: './wardrobe-page.component.scss'
 })

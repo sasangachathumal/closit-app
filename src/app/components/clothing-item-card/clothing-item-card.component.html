@@ -7,13 +7,13 @@
             <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve>
           }
           @case ('Short Sleeve T-Shirt') {
-            <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve>
+            <app-t-shirt-short-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-short-sleeve>
           }
           @case ('Long Sleeve Shirt') {
-            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve> -->
+            <app-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-shirt-long-sleeve>
           }
           @case ('Long Sleeve Shirt') {
-            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve> -->
+            <app-shirt-short-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-shirt-short-sleeve>
           }
           @case ('Jean') {
             <app-jeans [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-jeans>
@@ -28,10 +28,10 @@
             <app-shorts [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-shorts>
           }
           @case ('Leather Shoes') {
-            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode"></app-t-shirt-long-sleeve> -->
+            <app-leather-shoes [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-leather-shoes>
           }
           @case ('Casual Shoes') {
-            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode"></app-t-shirt-long-sleeve> -->
+            <app-casual-shoes [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-casual-shoes>
           }
         }
       </div>
