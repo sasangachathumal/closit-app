@@ -16,164 +16,59 @@
   </div>
   <div class="row">
     <div class="col-12 d-flex flex-row gap-3">
-      <button type="button" class="btn btn-white btn-filter">
-        T-shirts <span class="badge rounded-pill text-bg-warning text-white ms-2">4</span>
+      <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory()">
+        All <span class="badge rounded-pill text-bg-warning text-white ms-2">
+          {{ categoryCounts.Total }}
+        </span>
       </button>
-      <button type="button" class="btn btn-white btn-filter">
-        Shirts <span class="badge rounded-pill text-bg-warning text-white ms-2">4</span>
-      </button>
-      <button type="button" class="btn btn-white btn-filter">
-        Hoodies <span class="badge rounded-pill text-bg-warning text-white ms-2">4</span>
-      </button>
-      <button type="button" class="btn btn-white btn-filter">
-        Jeans <span class="badge rounded-pill text-bg-warning text-white ms-2">4</span>
-      </button>
-      <button type="button" class="btn btn-white btn-filter">
-        Trousers <span class="badge rounded-pill text-bg-warning text-white ms-2">4</span>
-      </button>
-      <button type="button" class="btn btn-white btn-filter">
-        Shorts <span class="badge rounded-pill text-bg-warning text-white ms-2">4</span>
-      </button>
-      <button type="button" class="btn btn-white btn-filter">
-        Shoes <span class="badge rounded-pill text-bg-warning text-white ms-2">4</span>
-      </button>
+      @if (categoryCounts.TShirt > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('T-Shirt')">
+          T-Shirts <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.TShirt }}</span>
+        </button>
+      }
+      @if (categoryCounts.Shirt > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Shirt')">
+          Shirts <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Shirt }}</span>
+        </button>
+      }
+      @if (categoryCounts.Hoodie > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Hoodie')">
+          Hoodies <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Hoodie }}</span>
+        </button>
+      }
+      @if (categoryCounts.Jean > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Jean')">
+          Jeans <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Jean }}</span>
+        </button>
+      }
+      @if (categoryCounts.Trouser > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Trouser')">
+          Trousers <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Trouser }}</span>
+        </button>
+      }
+      @if (categoryCounts.Short > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Short')">
+          Shorts <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Short }}</span>
+        </button>
+      }
+      @if (categoryCounts.Shoes > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Shoes')">
+          Shoes <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Shoes }}</span>
+        </button>
+      }
     </div>
   </div>
 </div>
 
 <div class="container-fluid mt-5 mb-5 ps-5">
   <div class="row">
-    <div class="col-12 d-flex flex-row gap-6">
-      <div class="card mb-3" style="max-width: 700px; max-height:400px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <app-hoodie [clothColor]="'blue'" [isSize100]="true"></app-hoodie>
+      @if (wardrobeItemList.length > 0) {
+        @for (item of wardrobeItemList; track item.id) {
+          <div class="col-md-6">
+            <app-clothing-item-card [WardrobeItem]="item"></app-clothing-item-card>
           </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="text-black">Card title</h5>
-              <p class="card-text text-black mb-1">Material</p>
-              <div>
-                <p class="card-text text-black mb-1">Dress Codes</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-              <div>
-                <p class="card-text text-black">Occations</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-              <div>
-                <p class="card-text text-black">Weather Conditions</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-3" style="max-width: 700px; max-height:400px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <app-t-shirt-short-sleeve [clothColor]="'red'" [isSize100]="true"></app-t-shirt-short-sleeve>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="text-black">Card title</h5>
-              <p class="card-text text-black mb-1">Material</p>
-              <div>
-                <p class="card-text text-black mb-1">Dress Codes</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-              <div>
-                <p class="card-text text-black">Occations</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-              <div>
-                <p class="card-text text-black">Weather Conditions</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="card mb-3" style="max-width: 700px; max-height:400px">
-        <div class="row g-0">
-          <div class="col-md-4">
-            <app-jeans [clothColor]="'green'" [isSizeFit]="true"></app-jeans>
-          </div>
-          <div class="col-md-8">
-            <div class="card-body">
-              <h5 class="text-black">Card title</h5>
-              <p class="card-text text-black mb-1">Material</p>
-              <div>
-                <p class="card-text text-black mb-1">Dress Codes</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-              <div>
-                <p class="card-text text-black">Occations</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-              <div>
-                <p class="card-text text-black">Weather Conditions</p>
-                <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                  <span class="badge rounded-pill bg-warning">Warning</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+        }
+      }
   </div>
 </div>
 

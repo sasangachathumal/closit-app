@@ -68,7 +68,7 @@ export class RegisterPageComponent implements OnInit {
       if (this.validatePasswords()) {
         const newUser = this.buildUserForRegister();
         if (newUser) {
-          this.service.register(this.secondForm.value).subscribe({
+          this.service.register(newUser).subscribe({
             next: (res) => {
               this.service.login({
                 email: newUser.email,

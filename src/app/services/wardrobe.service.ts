@@ -5,6 +5,17 @@ import { environment } from "../../environments/environment";
 import { LocalStorageService } from "./local-storage.service";
 import { UtilService } from "./util.service";
 
+export interface WardrobeItem {
+  id: number;
+  userId: number;
+  category: string;
+  colorCode: string;
+  material: string;
+  dressCodes: string[];
+  occasions: string[];
+  weather: string[];
+}
+
 @Injectable({
   providedIn: 'root'
 })

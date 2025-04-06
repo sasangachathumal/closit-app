@@ -1,0 +1,70 @@
+@if (WardrobeItem()) {
+  <div class="card mb-3">
+    <div class="row g-0">
+      <div class="col-md-4">
+        @switch (WardrobeItem().category) {
+          @case ('Long Sleeve T-Shirt') {
+            <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve>
+          }
+          @case ('Short Sleeve T-Shirt') {
+            <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve>
+          }
+          @case ('Long Sleeve Shirt') {
+            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve> -->
+          }
+          @case ('Long Sleeve Shirt') {
+            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-t-shirt-long-sleeve> -->
+          }
+          @case ('Jean') {
+            <app-jeans [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-jeans>
+          }
+          @case ('Trouser') {
+            <app-trouser [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-trouser>
+          }
+          @case ('Hoodie') {
+            <app-hoodie [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-hoodie>
+          }
+          @case ('Short') {
+            <app-shorts [clothColor]="WardrobeItem().colorCode" [isSize100]="true"></app-shorts>
+          }
+          @case ('Leather Shoes') {
+            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode"></app-t-shirt-long-sleeve> -->
+          }
+          @case ('Casual Shoes') {
+            <!-- <app-t-shirt-long-sleeve [clothColor]="WardrobeItem().colorCode"></app-t-shirt-long-sleeve> -->
+          }
+        }
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="text-black">{{ WardrobeItem().category }}</h5>
+          <p class="card-text text-black mb-2">{{ WardrobeItem().material }}</p>
+          <div>
+            <p class="card-text text-black mb-1">Dress Codes</p>
+            <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
+              @for (dressCode of WardrobeItem().dressCodes; track dressCode) {
+                <span class="badge rounded-pill bg-warning">{{ dressCode }}</span>
+              }
+            </div>
+          </div>
+          <div>
+            <p class="card-text text-black mb-1">Occations</p>
+            <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
+              @for (occasion of WardrobeItem().occasions; track occasion) {
+                <span class="badge rounded-pill bg-warning">{{ occasion }}</span>
+              }
+            </div>
+          </div>
+          <div>
+            <p class="card-text text-black mb-1">Weather Conditions</p>
+            <div class="mb-1 d-flex flex-row gap-1 flex-wrap">
+              @for (weatherCondition of WardrobeItem().weather; track weatherCondition) {
+                <span class="badge rounded-pill bg-warning">{{ weatherCondition }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+}

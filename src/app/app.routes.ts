@@ -15,5 +15,5 @@ export const routes: Routes = [
   { path: 'home', component: LangingPageComponent },
   { path: 'prompt', component: PromptPageComponent },
   { path: 'wardrobe', component: WardrobePageComponent },
-  { path: '',   redirectTo: '/home', pathMatch: 'full' },
+  { path: '',   redirectTo: '/login', pathMatch: 'full' },
 ];

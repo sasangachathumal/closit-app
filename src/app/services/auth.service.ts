@@ -34,7 +34,7 @@ export class AuthService {
 
     // POST request to verify user before register
     verifyRegister(data: any): Observable<any> {
-      return this.http.post(`${environment.apiUrl}${this.endpoints.register}`, data);
+      return this.http.post(`${environment.apiUrl}${this.endpoints.verifyRegister}`, data);
     }
 
     // POST request to register user in
