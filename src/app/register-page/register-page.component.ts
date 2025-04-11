@@ -81,6 +81,7 @@ export class RegisterPageComponent implements OnInit {
                       .subscribe({
                         next: (meResponse) => {
                           this.storage.set('me', meResponse.data);
+                          this.storage.set('isLogin', true);
                           this.router.navigate(['/home']);
                         },
                         error: (error) => {

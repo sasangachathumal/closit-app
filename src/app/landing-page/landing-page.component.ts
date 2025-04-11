@@ -4,12 +4,12 @@ import { LandingPageFeaturesComponent } from '../components/landing-page-feature
 import { LandingPageHeroComponent } from '../components/landing-page-hero/landing-page-hero.component';
 
 @Component({
-  selector: 'app-langing-page',
+  selector: 'app-landing-page',
   standalone: true,
   imports: [LandingPageHeroComponent, LandingPageFeaturesComponent, BackgroundImageComponent],
-  templateUrl: './langing-page.component.html',
-  styleUrl: './langing-page.component.scss'
+  templateUrl: './landing-page.component.html',
+  styleUrl: './landing-page.component.scss'
 })
-export class LangingPageComponent {
+export class LandingPageComponent {
 
 }

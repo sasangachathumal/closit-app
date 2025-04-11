@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 
 @Component({
@@ -9,6 +9,8 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
   styleUrl: './top-nav-bar.component.scss'
 })
 export class TopNavBarComponent {
+  hideNavi = input(false);
+
   isProfileDropdownShow = false;
 
   profileDropdownToggle() {

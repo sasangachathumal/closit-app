@@ -1,36 +1,71 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+import { RecommendClothingListComponent } from "../components/recommend-clothing-list/recommend-clothing-list.component";
 import { TopNavBarComponent } from "../components/top-nav-bar/top-nav-bar.component";
 
-import { CasualShoesComponent } from '../components/clothing-items/casual-shoes/casual-shoes.component';
-import { HoodieComponent } from '../components/clothing-items/hoodie/hoodie.component';
-import { JeansComponent } from '../components/clothing-items/jeans/jeans.component';
-import { LeatherShoesComponent } from '../components/clothing-items/leather-shoes/leather-shoes.component';
-import { ShirtLongSleeveComponent } from '../components/clothing-items/shirt-long-sleeve/shirt-long-sleeve.component';
-import { ShirtShortSleeveComponent } from '../components/clothing-items/shirt-short-sleeve/shirt-short-sleeve.component';
-import { ShortsComponent } from '../components/clothing-items/shorts/shorts.component';
-import { TShirtLongSleeveComponent } from '../components/clothing-items/t-shirt-long-sleeve/t-shirt-long-sleeve.component';
-import { TShirtShortSleeveComponent } from '../components/clothing-items/t-shirt-short-sleeve/t-shirt-short-sleeve.component';
-import { TrouserComponent } from '../components/clothing-items/trouser/trouser.component';
+import { Actions } from '../../data/quick-recommendation-actions';
+import { MissingItem, PromptReselt, PromptService } from "../services/prompt.service";
+import { WardrobeItem } from "../services/wardrobe.service";
 
 @Component({
   selector: 'app-prompt-page',
   standalone: true,
   imports: [
     TopNavBarComponent,
-    HoodieComponent,
-    JeansComponent,
-    ShortsComponent,
-    TShirtLongSleeveComponent,
-    TShirtShortSleeveComponent,
-    TrouserComponent,
-    CasualShoesComponent,
-    LeatherShoesComponent,
-    ShirtLongSleeveComponent,
-    ShirtShortSleeveComponent
+    FormsModule,
+    RecommendClothingListComponent
   ],
   templateUrl: './prompt-page.component.html',
   styleUrl: './prompt-page.component.scss'
 })
-export class PromptPageComponent {
+export class PromptPageComponent implements OnInit {
+
+  conversations: PromptReselt[] = [];
+  prompt: string = '';
+  quickActions = Actions;
+  loading: boolean = false;
+  isError: boolean = false;
+
+    constructor(
+      private promptService: PromptService
+    ) { }
+
+  ngOnInit(): void {
+    this.conversations = [];
+    this.prompt = '';
+    this.quickActions = Actions;
+    this.loading = false;
+    this.isError = false;
+  }
+
+  getRecommendations(quickPrompt?: string) {
+    this.loading = true;
+    this.isError = false;
+    let newPromptReselt:PromptReselt = {
+      prompt: '',
+      matched: [],
+      missing: []
+    };
+    let promptToSend = quickPrompt ? quickPrompt : this.prompt;
+    newPromptReselt.prompt = promptToSend;
+    this.promptService.getRecommendations({prompt: promptToSend}).subscribe({
+      next: (res) => {
+        if (res && res.data) {
+          newPromptReselt.matched = res.data.matched;
+          newPromptReselt.missing = res.data.missing;
+          this.conversations.push(newPromptReselt);
+        }
+        this.loading = false;
+        this.isError = false;
+        console.log("this.conversations", this.conversations);
+      },
+      error: (err) => {
+        console.log(err);
+        this.loading = false;
+        this.isError = true;
+      }
+    });
+  }
 
 }

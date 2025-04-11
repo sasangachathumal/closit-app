@@ -1,0 +1,36 @@
+<div class="d-flex p-3 flex-row flex-wrap gap-5 justify-content-center align-content-center align-items-center">
+  @for (item of clothingList(); track $index) {
+    @switch (item.category) {
+      @case ('Long Sleeve T-Shirt') {
+        <app-t-shirt-long-sleeve [clothColor]="item.colorCode"></app-t-shirt-long-sleeve>
+      }
+      @case ('Short Sleeve T-Shirt') {
+        <app-t-shirt-short-sleeve [clothColor]="item.colorCode"></app-t-shirt-short-sleeve>
+      }
+      @case ('Long Sleeve Shirt') {
+        <app-shirt-long-sleeve [clothColor]="item.colorCode"></app-shirt-long-sleeve>
+      }
+      @case ('Long Sleeve Shirt') {
+        <app-shirt-short-sleeve [clothColor]="item.colorCode"></app-shirt-short-sleeve>
+      }
+      @case ('Jean') {
+        <app-jeans [clothColor]="item.colorCode"></app-jeans>
+      }
+      @case ('Trouser') {
+        <app-trouser [clothColor]="item.colorCode"></app-trouser>
+      }
+      @case ('Hoodie') {
+        <app-hoodie [clothColor]="item.colorCode"></app-hoodie>
+      }
+      @case ('Short') {
+        <app-shorts [clothColor]="item.colorCode"></app-shorts>
+      }
+      @case ('Leather Shoes') {
+        <app-leather-shoes [clothColor]="item.colorCode"></app-leather-shoes>
+      }
+      @case ('Casual Shoes') {
+        <app-casual-shoes [clothColor]="item.colorCode"></app-casual-shoes>
+      }
+    }
+  }
+</div>

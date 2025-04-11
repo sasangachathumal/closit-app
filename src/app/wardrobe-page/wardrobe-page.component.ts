@@ -38,6 +38,7 @@ export class WardrobePageComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
+    this.initVariables();
     this.loadClothingItems();
   }
 

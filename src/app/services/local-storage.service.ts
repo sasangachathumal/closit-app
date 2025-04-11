@@ -8,7 +8,7 @@ export class LocalStorageService {
   constructor() { }
 
   // Set a value in local storage
-  set(key: string, value: string): void {
+  set(key: string, value: any): void {
     localStorage.setItem(key, JSON.stringify(value));
   }
 
