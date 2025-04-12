@@ -1,0 +1,49 @@
+<app-top-nav-bar></app-top-nav-bar>
+
+<div class="container w-100 mt-2">
+  @if (categoryList.length > 0) {
+    <div class="category-container mx-4">
+      <div class="main-category d-flex flex-row justify-content-between">
+        @for (category of categoryList; track $index) {
+          <div class="category p-3 rounded-circle cursor-pointer" [class.active]="selectedCategory === category" (click)="categorySelect(category)">
+            <img [src]="category.img">
+          </div>
+        }
+      </div>
+      @if (selectedCategory) {
+        <div class="sub-category mt-3 d-flex flex-row gap-3">
+          @for (subCategory of selectedCategory.sub; track $index) {
+            <div class="category ps-3 pe-3 pt-2 pb-2 rounded-3 cursor-pointer" [class.active]="selectedSubCategory === subCategory" (click)="subCategorySelect(subCategory)">
+              <p class="mb-0">{{ subCategory }}</p>
+            </div>
+          }
+        </div>
+      }
+    </div>
+  }
+  @if (selectedSubCategory) {
+    <div class="row mt-3">
+      <div class="col-md-5"></div>
+      <div class="col-md-7">
+        @if (fixedColorList.length > 0) {
+          <div class="color-container">
+            <p class="font-weight-bold font-black text-3xl">
+              Colors
+            </p>
+            <div class="fixed-colors d-flex flex-row gap-4">
+              @for (color of fixedColorList; track $index) {
+                <div class="color rounded-3 cursor-pointer" [ngStyle]="{'background-color': color}"></div>
+              }
+            </div>
+            <div class="color-picker mt-2">
+              <input class="w-20" type="color" id="favcolor" value="#ff0000">
+            </div>
+          </div>
+        }
+        <div class="material-container">
+
+        </div>
+      </div>
+    </div>
+  }
+</div>

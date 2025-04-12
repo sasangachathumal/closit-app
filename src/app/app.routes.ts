@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { CustomizerPageComponent } from './customizer-page/customizer-page.component';
 import { ForgetPasswordPageComponent } from './forget-password-page/forget-password-page.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
@@ -20,6 +21,7 @@ export const routes: Routes = [
   { path: 'prompt', component: PromptPageComponent, canActivate: [AuthGuard] },
   { path: 'wardrobe', component: WardrobePageComponent, canActivate: [AuthGuard] },
   { path: 'home', component: HomePageComponent, canActivate: [AuthGuard] },
+  { path: 'customizer', component: CustomizerPageComponent, canActivate: [AuthGuard] },
 
   { path: '',   redirectTo: '/landing', pathMatch: 'full' },
 ];

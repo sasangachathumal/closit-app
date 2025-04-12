@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RouterLink, RouterLinkActive } from '@angular/router';
 
 import { TopNavBarComponent } from "../components/top-nav-bar/top-nav-bar.component";
 
@@ -11,7 +12,7 @@ import { WardrobeItem, WardrobeService } from "../services/wardrobe.service";
 @Component({
   selector: 'app-wardrobe-page',
   standalone: true,
-  imports: [TopNavBarComponent, ClothingItemCardComponent],
+  imports: [TopNavBarComponent, ClothingItemCardComponent, RouterLink, RouterLinkActive],
   templateUrl: './wardrobe-page.component.html',
   styleUrl: './wardrobe-page.component.scss'
 })

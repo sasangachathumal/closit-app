@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RecommendClothingListComponent } from "../components/recommend-clothing-list/recommend-clothing-list.component";
 import { TopNavBarComponent } from "../components/top-nav-bar/top-nav-bar.component";
 
-import { Actions } from '../../data/quick-recommendation-actions';
+import { Actions } from '../../data/static-app-data';
 import { MissingItem, PromptReselt, PromptService } from "../services/prompt.service";
 import { WardrobeItem } from "../services/wardrobe.service";
 
