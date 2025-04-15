@@ -1,4 +1,11 @@
-export const categories = [
+export interface category {
+  category: string;
+  img: string;
+  sub?: string[];
+  materials?: string[];
+};
+
+export const categories: category[] = [
   {
     category: 'Shirt',
     img: '/category-img/shirt.png',
@@ -75,7 +82,7 @@ export const categories = [
   }
 ]
 
-export const fixedColors =['#fc0505', '#fc5f05', '#fcf105', '#79fc05', '#23fc05', '#05fce2', '#0514fc', '#9005fc', '#fc05f1']
+export const fixedColors =['#fc0505', '#fc5f05', '#fcf105', '#23fc05', '#05fce2', '#0514fc', '#9005fc', '#fc05f1']
 
 export const Actions = [
   "Suggestions what to wear for a birthday party",

@@ -20,9 +20,39 @@
 .color-container {
   .fixed-colors {
     .color {
-      width: 50px;
-      height: 50px;
+      width: 40px;
+      height: 40px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.266);
     }
   }
+  .color-picker {
+    input {
+      width: 200px;
+      height: 40px;
+      padding: 0;
+      background-color: transparent;
+      border: none;
+      border-radius: 12px;
+      border-color: transparent;
+    }
+  }
+}
+
+.clothing-container {
+  ::ng-deep {
+    .image-container {
+      width: fit-content;
+      justify-self: anchor-center;
+      .img-1 {
+        width: 20rem;
+      }
+      .img-2 {
+        width: 20rem;
+      }
+    }
+  }
+}
+
+.material-select {
+  border: 1px solid #ef8727 !important;
 }

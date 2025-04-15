@@ -58,7 +58,7 @@ export class WardrobePageComponent implements OnInit {
       .subscribe({
         next: (res) => {
           this.countCategories(res.data);
-          this.wardrobeItemList = res.data;
+          this.wardrobeItemList = [...res.data].reverse();
           this.originalWardrobeItemList = res.data;
           this.loading = false;
         },
