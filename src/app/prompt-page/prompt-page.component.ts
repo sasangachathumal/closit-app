@@ -1,3 +1,4 @@
+import { JsonPipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
@@ -48,6 +49,9 @@ export class PromptPageComponent implements OnInit {
       missing: []
     };
     let promptToSend = quickPrompt ? quickPrompt : this.prompt;
+    if (promptToSend === '' || promptToSend === undefined || promptToSend === null) {
+      return;
+    }
     newPromptReselt.prompt = promptToSend;
     this.promptService.getRecommendations({prompt: promptToSend}).subscribe({
       next: (res) => {
@@ -55,10 +59,13 @@ export class PromptPageComponent implements OnInit {
           newPromptReselt.matched = res.data.matched;
           newPromptReselt.missing = res.data.missing;
           this.conversations.push(newPromptReselt);
+        } else if (res && res.message) {
+          newPromptReselt.message = res.message;
+          this.conversations.push(newPromptReselt);
         }
         this.loading = false;
         this.isError = false;
-        console.log("this.conversations", this.conversations);
+        this.prompt = '';
       },
       error: (err) => {
         console.log(err);

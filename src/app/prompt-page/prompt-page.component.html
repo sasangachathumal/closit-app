@@ -22,7 +22,7 @@
     @for (conversation of conversations; track $index) {
     <!-- Provided Promt -->
     <div class="d-flex justify-content-end">
-      <div class="card result-container w-100">
+      <div class="card result-container w-auto">
         <div class="card-body d-flex flex-column justify-content-start">
           <p class="mb-0 font-black text-end">
             {{ conversation.prompt }}
@@ -31,27 +31,39 @@
       </div>
     </div>
     <!-- Result for the Promt -->
-    <div class="row p-3 mt-3 mb-3 ms-2 me-2">
-      <div class="col-12 p-0 m-0">
-        <div class="row p-0 m-0 title-container">
-          <div class="col-12 p-0 m-0">
-            <p class="m-0 text-black">Clothing items you own</p>
+     @if (conversation.matched.length > 0 || conversation.missing.length > 0) {
+      <div class="row p-3 mt-3 mb-3 ms-2 me-2">
+        <div class="col-12 p-0 m-0">
+          <div class="row p-0 m-0 title-container">
+            <div class="col-12 p-0 m-0">
+              <p class="m-0 text-black">Clothing items you own</p>
+            </div>
+          </div>
+          <app-recommend-clothing-list [clothingList]="conversation.matched"></app-recommend-clothing-list>
+        </div>
+      </div>
+      <div class="row p-3 mt-3 mb-3 ms-2 me-2">
+        <div class="col-12 p-0 m-0">
+          <div class="row p-0 m-0 title-container">
+            <div class="col-12 p-0 m-0">
+              <p class="m-0 text-black">Clothing items you missing in wardrobe</p>
+            </div>
+          </div>
+          <app-recommend-clothing-list [clothingList]="conversation.missing"></app-recommend-clothing-list>
+        </div>
+      </div>
+     }
+     @else if (conversation.message) {
+      <div class="d-flex justify-content-start mt-3">
+        <div class="card result-container w-auto">
+          <div class="card-body d-flex flex-column justify-content-start">
+            <p class="mb-0 font-black text-start">
+              {{ conversation.message }}
+            </p>
           </div>
         </div>
-        <app-recommend-clothing-list [clothingList]="conversation.matched"></app-recommend-clothing-list>
       </div>
-    </div>
-
-    <div class="row p-3 mt-3 mb-3 ms-2 me-2">
-      <div class="col-12 p-0 m-0">
-        <div class="row p-0 m-0 title-container">
-          <div class="col-12 p-0 m-0">
-            <p class="m-0 text-black">Clothing items you missing in wardrobe</p>
-          </div>
-        </div>
-        <app-recommend-clothing-list [clothingList]="conversation.missing"></app-recommend-clothing-list>
-      </div>
-    </div>
+     }
     }
     }
   </div>
@@ -65,7 +77,7 @@
         </div>
       </div>
       <div class="col-1 my-auto ps-1 pe-0">
-        <button type="button" class="btn btn-icon bg-gradient-warning m-auto w-100" (click)="getRecommendations()">
+        <button type="button" class="btn btn-icon bg-gradient-warning m-auto w-100" [disabled]="!prompt" (click)="getRecommendations()">
           <span class="material-symbols-outlined m-auto">send</span>
         </button>
       </div>

@@ -35,11 +35,6 @@ export class RegisterPageComponent implements OnInit {
     this.firstForm = new FormBuilder().group({
       email: ['', [Validators.required, Validators.email]]
     });
-    this.secondForm = new FormBuilder().group({
-      name: ['', [Validators.required]],
-      password: ['', Validators.required],
-      confirmPassword: ['', [Validators.required]]
-    });
   }
 
   goToNextStep() {
@@ -51,6 +46,11 @@ export class RegisterPageComponent implements OnInit {
         next: (res) => {
           this.userEmail = this.firstForm?.get('email')?.value;
           this.isShowStepOne = false;
+          this.secondForm = new FormBuilder().group({
+            name: ['', [Validators.required]],
+            password: ['', Validators.required],
+            confirmPassword: ['', [Validators.required]]
+          });
           this.isShowStepTwo = true;
         },
         error: (err) => {

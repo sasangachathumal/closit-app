@@ -39,12 +39,12 @@ export class WardrobeService {
     return this.http.post(`${environment.apiUrl}${this.endpoints.newItem}`, data, { headers: this.utilService.generateRequestHeader() });
   }
 
-  // POST request to get single clothing item
+  // GET request to get single clothing item
   getSinleItem(itemId: any): Observable<any> {
     return this.http.get(`${environment.apiUrl}${this.endpoints.singleItem}${itemId}`, { headers: this.utilService.generateRequestHeader() });
   }
 
-  // POST request to get clothing items of login
+  // GET request to get clothing items of login User
   getUserClothingItems(): Observable<any> {
     return this.http.get(`${environment.apiUrl}${this.endpoints.usersIteams}`, { headers: this.utilService.generateRequestHeader() });
   }

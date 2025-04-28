@@ -17,6 +17,7 @@ export interface PromptReselt {
   prompt: string;
   matched: WardrobeItem[];
   missing: MissingItem[];
+  message?: string;
 }
 
 @Injectable({

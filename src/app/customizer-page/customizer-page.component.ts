@@ -116,6 +116,9 @@ export class CustomizerPageComponent implements OnInit {
       colorCode: this.selectedColor,
       material: this.getMaterial()
     }
+    if (this.getMaterial() === null) {
+      return;
+    }
     this.isSuccess = false;
     this.isError = false;
     this.wardrobeService.saveNewClothingItem(item).subscribe({
@@ -143,8 +146,13 @@ export class CustomizerPageComponent implements OnInit {
       } else {
         return 'Canvas';
       }
-    } else {
+    } else if (this.selectedMaterial != '') {
       return this.selectedMaterial;
+    } else {
+      this.isSuccess = false;
+        this.isError = true;
+        this.message = 'Please Select a Material type to continue';
+        return null;
     }
   }
 
