@@ -1,0 +1,14 @@
+.landing-feature-card{
+  z-index: 2;
+}
+
+.feature-image-container {
+  max-height: 300px;
+  img {
+    max-height: 300px;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}

@@ -1,2 +1,114 @@
 /* You can add global styles to this file, and also import other style files */
 
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: 2s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.image-container {
+  position: relative;
+  box-shadow: 0 0 2em rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  overflow: hidden;
+  width: 10em;
+
+  .img-1 {
+    width: 10em;
+    z-index: 0;
+  }
+  .img-2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 10em;
+    z-index: 2;
+  }
+  .color {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    mix-blend-mode: multiply;
+  }
+  &.wh-100 {
+    width: 100% !important;
+    height: 100% !important;
+    .img-1 {
+      width: 100% !important;
+      height: 100% !important;
+      aspect-ratio: 16 / 20;
+    }
+    .img-2 {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+
+  &.wh-fit {
+    width: 100% !important;
+    height: 100% !important;
+    .img-1 {
+      width: 100% !important;
+      height: 100% !important;
+      aspect-ratio: 16 / 20;
+    }
+    .img-2 {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+}
+
+.font-black, .text-black {
+  color: black;
+}
+
+.feature-image-container img {
+  transition: transform 0.3s ease-in-out;
+  will-change: transform;
+}
+
+.feature-image-container img:hover {
+  transform: scale(1.3);
+}
+
+.btn {
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:hover {
+  animation: bounce 0.5s ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.landing-feature-card {
+  transition: box-shadow 0.3s ease-in-out;
+  // box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.landing-feature-card:hover {
+  box-shadow: 0 0 40px rgba(255, 144, 40, 0.266);
+  border: 0.5px solid #ef8727;
+}

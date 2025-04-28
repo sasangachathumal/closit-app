@@ -1,0 +1,41 @@
+<div class="bg-gray-100 position-relative pb-6 min-vh-100">
+  <app-top-nav-bar class="fade-in" [hideNavi]="true"></app-top-nav-bar>
+
+  <div class="container">
+    <div class="row d-flex my-3 justify-content-center">
+      <div class="col-lg-4">
+        <div class="card landing-feature-card w-100 h-100 fade-in">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <p class="font-weight-bold mt-3 font-black text-center text-2xl">
+              Virtual Wardrobe
+            </p>
+            <div class="feature-image-container m-4 d-flex justify-content-center align-content-center">
+              <img src="/bg/landing-1.png" alt="img-blur-shadow" class="img-fluid">
+            </div>
+            <a type="button" class="btn bg-gradient-warning" routerLink="/wardrobe" routerLinkActive="active">
+              Explore
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="card landing-feature-card w-100 h-100 fade-in">
+          <div class="card-body d-flex flex-column justify-content-center">
+            <p class="font-weight-bold mt-3 font-black text-center text-2xl">
+              Get Recommendations
+            </p>
+            <div class="feature-image-container m-4 d-flex justify-content-center align-content-center">
+              <img src="/bg/landing-3.png" alt="img-blur-shadow" class="img-fluid">
+            </div>
+            <a type="button" class="btn bg-gradient-warning" routerLink="/prompt" routerLinkActive="active">
+              Explore
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Background -->
+<app-background-image></app-background-image>

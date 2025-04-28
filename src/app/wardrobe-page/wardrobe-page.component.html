@@ -1,0 +1,79 @@
+<app-top-nav-bar></app-top-nav-bar>
+
+<div class="container-fluid mt-5 mb-5 ps-5">
+  <div class="row">
+    <div class="col-3">
+      <p class="text-black font-weight-bold text-lg">Your Wardrobe</p>
+      <a type="button" class="btn bg-gradient-warning" routerLink="/customizer" routerLinkActive="active">
+        + New Item
+      </a>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-3">
+      <p class="text-black text-sm">Wardrobe Items</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-12 d-flex flex-row gap-3">
+      <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory()">
+        All <span class="badge rounded-pill text-bg-warning text-white ms-2">
+          {{ categoryCounts.Total }}
+        </span>
+      </button>
+      @if (categoryCounts.TShirt > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('T-Shirt')">
+          T-Shirts <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.TShirt }}</span>
+        </button>
+      }
+      @if (categoryCounts.Shirt > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Shirt')">
+          Shirts <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Shirt }}</span>
+        </button>
+      }
+      @if (categoryCounts.Hoodie > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Hoodie')">
+          Hoodies <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Hoodie }}</span>
+        </button>
+      }
+      @if (categoryCounts.Jean > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Jean')">
+          Jeans <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Jean }}</span>
+        </button>
+      }
+      @if (categoryCounts.Trouser > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Trouser')">
+          Trousers <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Trouser }}</span>
+        </button>
+      }
+      @if (categoryCounts.Short > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Short')">
+          Shorts <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Short }}</span>
+        </button>
+      }
+      @if (categoryCounts.Shoes > 0) {
+        <button type="button" class="btn btn-white btn-filter" (click)="sortItemsByCategory('Shoes')">
+          Shoes <span class="badge rounded-pill text-bg-warning text-white ms-2">{{ categoryCounts.Shoes }}</span>
+        </button>
+      }
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5 mb-5 ps-5">
+  <div class="row">
+      @if (wardrobeItemList.length > 0) {
+        @for (item of wardrobeItemList; track item.id) {
+          <div class="col-md-6">
+            <app-clothing-item-card [WardrobeItem]="item"></app-clothing-item-card>
+          </div>
+        }
+      }
+      @else {
+        <div class="col-md-12 d-flex justify-content-center align-content-center">
+          <p>~ Your wardrobe items will appear here ~</p>
+        </div>
+      }
+  </div>
+</div>
+
